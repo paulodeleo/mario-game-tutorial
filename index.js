@@ -9,6 +9,12 @@ class Player {
       x: 100,
       y: 100
     }
+
+    this.velocity = {
+      x: 0,
+      y: 1
+    }
+
     this.width = 30
     this.height = 30
   }
@@ -17,8 +23,20 @@ class Player {
     c.fillStyle = 'red'
     c.fillRect(this.position.x, this.position.y, this.width, this.height)
   }
+
+  update() {
+    this.position.y = this.velocity.y
+    this.draw()
+  }
 }
 
 // console.log(c)
 const player = new Player()
-player.draw()
+player.update()
+
+function animate() {
+  console.log('go')
+  requestAnimationFrame(animate)
+}
+
+animate()
