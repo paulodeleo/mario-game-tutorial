@@ -142,7 +142,9 @@ window.addEventListener('keydown', ({code})  => {
       break;
     case 'Space':
       console.log('up')
-      player.velocity.y -= 20
+      if (player.velocity.y == 0) {
+        player.velocity.y -= 20
+      }
       break;
       default:
         break;
