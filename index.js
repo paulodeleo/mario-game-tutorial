@@ -25,7 +25,7 @@ class Player {
   }
 
   update() {
-    this.position.y = this.velocity.y
+    this.position.y += this.velocity.y
     this.draw()
   }
 }
@@ -35,8 +35,9 @@ const player = new Player()
 player.update()
 
 function animate() {
-  console.log('go')
   requestAnimationFrame(animate)
+  c.clearRect(0, 0, canvas.width, canvas.height)
+  player.update()
 }
 
 animate()
