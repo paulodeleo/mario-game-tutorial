@@ -98,18 +98,18 @@ animate()
 
 window.addEventListener('keydown', ({code})  => {
   switch (code) {
-    case 'KeyA':
+    case 'ArrowLeft':
       console.log('left')
       keys.left.pressed = true
       break;
-      case 'KeyS':
+      case 'ArrowDown':
       console.log('down')
       break;
-    case 'KeyD':
+    case 'ArrowRight':
       console.log('right')
       keys.right.pressed = true
       break;
-    case 'KeyW':
+    case 'Space':
       console.log('up')
       player.velocity.y -= 20
       break;
@@ -120,19 +120,19 @@ window.addEventListener('keydown', ({code})  => {
 
 window.addEventListener('keyup', ({code})  => {
   switch (code) {
-    case 'KeyA':
+    case 'ArrowLeft':
       console.log('left')
       keys.left.pressed = false
       break;
-    case 'KeyS':
+    case 'ArrowDown':
       console.log('down')
       break;
-    case 'KeyD':
+    case 'ArrowRight':
       console.log('right')
       keys.right.pressed = false
       break;
-    case 'KeyW':
-      console.log('up')
+    // case 'Space':
+    //   console.log('up')
       // player.velocity.y -= 20
       break;
     default:
