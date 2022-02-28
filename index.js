@@ -40,27 +40,36 @@ class Player {
   }
 }
 
-
 class Platform {
-  constructor({x, y}) {
+  constructor({x, y, image}) {
     this.position = {
       x,
       y
     }
 
-    this.width = 200
-    this.height = 20
+    // this.width = 580
+    // this.height = 125
+    this.width = image.width
+    this.height = image.height
   }
 
   draw() {
     c.fillStyle = 'blue'
-    c.fillRect(this.position.x, this.position.y, this.width, this.height)
+    // c.fillRect(this.position.x, this.position.y, this.width, this.height)
+    c.drawImage(image, this.position.x, this.position.y, this.width, this.height)
   }
 }
 
-// console.log(c)
+
+const image = new Image(580, 125)
+image.src = './img/platform.png'
+// console.log(image)
+
 const player = new Player()
-const platforms = [new Platform({x: 200, y: 100}), new Platform({x: 500, y: 200})]
+const platforms = [
+  new Platform({x: 200, y: 100, image}),
+  new Platform({x: 500, y: 200, image})
+]
 
 const keys = {
   right: {
@@ -76,10 +85,10 @@ let scrollOffset = 0
 function animate() {
   requestAnimationFrame(animate)
   c.clearRect(0, 0, canvas.width, canvas.height)
-  player.update()
   platforms.forEach(platform => {
     platform.draw()
   })
+  player.update()
 
   if (keys.right.pressed && player.position.x < 450) {
     player.velocity.x = 5
